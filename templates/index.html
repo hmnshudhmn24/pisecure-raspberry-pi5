@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PiSecure Dashboard</title>
+  <style>
+    body { background-color: #000; color: #0f0; font-family: monospace; text-align: center; padding-top: 50px; }
+    button { padding: 10px 20px; font-size: 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🔒 PiSecure</h1>
+  <p>Face & Voice Recognition Door Unlock System</p>
+  <button onclick="unlock()">Unlock Door</button>
+  <p id="status"></p>
+
+  <script>
+    async function unlock() {
+      const res = await fetch("/unlock");
+      const data = await res.json();
+      document.getElementById("status").innerText = data.status;
+    }
+  </script>
+</body>
+</html>
